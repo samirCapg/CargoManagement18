@@ -18,6 +18,7 @@ namespace CargoManagementMVC.Controllers
     {
 
         //admin dashboard
+        //a comment
         public ActionResult AdminDashboard()
         {
             return View();
