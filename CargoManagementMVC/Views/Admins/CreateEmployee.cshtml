@@ -1,0 +1,68 @@
+﻿@model CargoManagementDataAccess.Entity.Models.Employee
+@{
+    ViewBag.Title = "CreateEmployee";
+}
+<div class="flex  my-6">
+    <!-- Back Button -->
+    <a href="@Url.Action("AdminDashboard", "Admins")"
+       class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out">
+        Back to DashBoard
+    </a>
+</div>
+
+<div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl mx-auto">
+    <h1 class="text-2xl text-blue-600 font-semibold text-center mb-6">Employee Registration</h1>
+
+    @using (Html.BeginForm("CreateEmployee", "Admins", FormMethod.Post))
+    {
+        <!-- Username and Employee Name fields in one line -->
+        <div class="grid grid-cols-2 gap-4 mt-3">
+            <div>
+                <label for="UserName" class="block text-sm font-medium text-gray-700">Username</label>
+                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control w-full px-2 py-1 mt-1 border rounded-md text-sm" })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-red-500 text-xs" })
+            </div>
+
+            <div>
+                <label for="EmpName" class="block text-sm font-medium text-gray-700">Employee Name</label>
+                @Html.TextBoxFor(model => model.EmpName, new { @class = "form-control w-full px-2 py-1 mt-1 border rounded-md text-sm" })
+                @Html.ValidationMessageFor(model => model.EmpName, "", new { @class = "text-red-500 text-xs" })
+            </div>
+        </div>
+
+        <!-- Phone Number and Email fields in one line -->
+        <div class="grid grid-cols-2 gap-4 mt-3">
+            <div>
+                <label for="EmpPhNo" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                @Html.TextBoxFor(model => model.EmpPhNo, new { @class = "form-control w-full px-2 py-1 mt-1 border rounded-md text-sm" })
+                @Html.ValidationMessageFor(model => model.EmpPhNo, "", new { @class = "text-red-500 text-xs" })
+            </div>
+
+            <div>
+                <label for="EmpEmail" class="block text-sm font-medium text-gray-700">Email Address</label>
+                @Html.TextBoxFor(model => model.EmpEmail, new { @class = "form-control w-full px-2 py-1 mt-1 border rounded-md text-sm" })
+                @Html.ValidationMessageFor(model => model.EmpEmail, "", new { @class = "text-red-500 text-xs" })
+            </div>
+        </div>
+
+        <!-- Password field centered -->
+        <div class="mt-3 flex justify-center">
+            <div class="w-full max-w-xs">
+                <label for="Password" class="block text-sm font-medium text-gray-700">Password</label>
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control w-full px-2 py-1 mt-1 border rounded-md text-sm" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-red-500 text-xs" })
+            </div>
+        </div>
+
+        <!-- Buttons: View Employees and Create Employees in one line -->
+        <div class="mt-4 flex space-x-4">
+            <!-- View Employees Button on the left -->
+            <a href="@Url.Action("EmployeesList", "Admins")" class="w-1/2 bg-gray-600 text-white py-2 rounded-md text-sm text-center hover:bg-gray-700 transition duration-300">View Employees</a>
+
+            <!-- Register Button on the right in green -->
+            <button type="submit" class="w-1/2 bg-green-600 text-white py-2 rounded-md text-sm hover:bg-green-700 transition duration-300">Register</button>
+        </div>
+
+
+    }
+</div>

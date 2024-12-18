@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "CityList";
+}
+<h2 class="text-2xl font-semibold text-center text-gray-800 mb-4">City List</h2>
+
+<div class="overflow-x-auto container">
+
+    <!-- Back Button -->
+    <div class="flex justify-between items-center my-6">
+        <a href="@Url.Action("AdminDashboard", "Admins")"
+           class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out">
+            Back to DashBoard
+        </a>
+     </div>
+
+
+
+
+        <table class="w-full table-auto border-collapse text-sm font-semibold">
+            <thead>
+                <tr class="bg-blue-600 text-white">
+                    <th class="p-3 text-left">City Name</th>
+                    <th class="p-3 text-left">Pincode</th>
+                    <th class="p-3 text-left">Country</th>
+
+                    <th class="p-3 text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="border-b hover:bg-gray-100">
+                        <td class="p-3 text-gray-800">@item.CityName</td>
+                        <td class="p-3 text-gray-800">@item.Pincode</td>
+                        <td class="p-3 text-gray-800">@item.Country</td>
+
+                        <td class="p-3 flex justify-center space-x-2">
+                            <a href="@Url.Action("EditCity", "Admins", new { id = item.Id })" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Edit</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+

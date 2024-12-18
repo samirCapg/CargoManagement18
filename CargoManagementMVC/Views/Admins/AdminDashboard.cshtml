@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "AdminDashboard";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargo Orders Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans overflow-hidden">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <h1 class="text-lg font-bold">Admin Dashboard</h1>
+            <ul class="flex space-x-4 text-xl">
+                <a href="@Url.Action("EmployeesList", "Admins")" class="hover:text-yellow-300">Employees</a>
+                <a href="@Url.Action("CustomersList", "Admins")" class="hover:text-yellow-300">Customers</a>
+                <a href="@Url.Action("CargoTypeList", "Admins")" class="hover:text-yellow-300">Cargo Types</a>
+                <a href="@Url.Action("CityList", "Admins")" class="hover:text-yellow-300">City</a>
+
+                <a href="@Url.Action("Logout", "CargoApp")" class="font-bold text-xl">Logout</a>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-4">
+        <!-- Cards -->
+        <div class="grid grid-cols-2 gap-4 mb-4">
+            <div class="bg-white shadow-md rounded-lg p-4 text-center">
+                <h2 class="text-4xl font-bold text-blue-600">5</h2>
+                <p class="text-2xl text-gray-600">Yet to Deliver of Total Orders: 20</p>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-4 text-center">
+                <h2 class="text-4xl font-bold text-green-600">3</h2>
+                <p class="text-2xl text-gray-600">Yet to Approve of Total Employees: 15</p>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div>
+            <table class="min-w-full bg-white border border-gray-200 shadow-md text-sm table-fixed">
+                <thead>
+                    <tr class="bg-blue-600 text-white text-xs">
+                        <th class="py-1 px-2">Order Date</th>
+                        <th class="py-1 px-2">OrderId</th>
+                        <th class="py-1 px-2">Receiver Name</th>
+                        <th class="py-1 px-2">Email</th>
+                        <th class="py-1 px-2">Phone</th>
+                        <th class="py-1 px-2">Accepted</th>
+                        <th class="py-1 px-2">Status</th>
+                        <th class="py-1 px-2">City Id</th>
+                        <th class="py-1 px-2">Weight</th>
+                        <th class="py-1 px-2">Price</th>
+                        <th class="py-1 px-2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-gray-100">
+                        <td class="py-1 px-2 text-center">2024-06-17</td>
+                        <td class="py-1 px-2 text-center">101</td>
+                        <td class="py-1 px-2 text-center">John Doe</td>
+                        <td class="py-1 px-2 text-center">john.doe@example.com</td>
+                        <td class="py-1 px-2 text-center">123-456-7890</td>
+                        <td class="py-1 px-2 text-center text-green-500">Accepted</td>
+                        <td class="py-1 px-2 text-center text-orange-500">PENDING</td>
+                        <td class="py-1 px-2 text-center">12</td>
+                        <td class="py-1 px-2 text-center">500kg</td>
+                        <td class="py-1 px-2 text-center">$1200</td>
+                        <td class="py-1 px-2 text-center">
+                            <button class="bg-blue-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600">Edit</button>
+                            <button class="bg-gray-500 text-white text-sm px-2 py-1 rounded hover:bg-gray-600">Details</button>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-100">
+                        <td class="py-1 px-2 text-center">2024-06-18</td>
+                        <td class="py-1 px-2 text-center">102</td>
+                        <td class="py-1 px-2 text-center">Jane Smith</td>
+                        <td class="py-1 px-2 text-center">jane.smith@example.com</td>
+                        <td class="py-1 px-2 text-center">987-654-3210</td>
+                        <td class="py-1 px-2 text-center text-red-500">Yet to Accept</td>
+                        <td class="py-1 px-2 text-center text-green-500">DELIVERED</td>
+                        <td class="py-1 px-2 text-center">15</td>
+                        <td class="py-1 px-2 text-center">700kg</td>
+                        <td class="py-1 px-2 text-center">$1800</td>
+                        <td class="py-1 px-2 text-center">
+                            <button class="bg-blue-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600">Edit</button>
+                            <button class="bg-gray-500 text-white text-sm px-2 py-1 rounded hover:bg-gray-600">Details</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Back Button -->
+        <div class="mt-2 text-center">
+            <a href="#" class="bg-gray-600 text-white text-xs px-3 py-1 rounded hover:bg-gray-700">Back to Dashboard</a>
+        </div>
+    </div>
+
+</body>
+</html>

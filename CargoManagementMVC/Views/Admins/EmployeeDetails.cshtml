@@ -1,0 +1,53 @@
+﻿@model CargoManagementDataAccess.Entity.Models.Employee
+@{
+    ViewData["Title"] = "Details of Employees";
+}
+
+<div class="container py-6 px-4">
+    <div class="flex  my-6">
+        <!-- Back Button -->
+        <a href="@Url.Action("EmployeesList", "Admins")"
+           class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out">
+            Back to Employee List
+        </a>
+    </div>
+    <div class="flex justify-center">
+        <div class="max-w-4xl w-50 bg-white shadow-lg rounded-lg p-6">
+            <div class="text-center">
+                <h5 class="text-3xl font-bold text-blue-600 mb-4">@Model.UserName</h5>
+                <p class="text-lg text-gray-600">Employee Details</p>
+            </div>
+
+            <!-- Employee Details -->
+            <div class="space-y-4 mt-4">
+                <div class="flex justify-between items-center gap-6">
+                    <p class="text-lg font-semibold text-blue-600">User Name</p>
+                    <p class="text-lg text-gray-800 font-medium">@Model.UserName</p>
+                </div>
+
+                <div class="flex justify-between items-center gap-6">
+                    <p class="text-lg font-semibold text-blue-600">Name</p>
+                    <p class="text-lg text-gray-800 font-medium">@Model.EmpName</p>
+                </div>
+
+                <div class="flex justify-between items-center gap-6">
+                    <p class="text-lg font-semibold text-blue-600">Phone</p>
+                    <p class="text-lg text-gray-800 font-medium">@Model.EmpPhNo</p>
+                </div>
+
+                <div class="flex justify-between items-center gap-6">
+                    <p class="text-lg font-semibold text-blue-600">Email</p>
+                    <p class="text-lg text-gray-800 font-medium">@Model.EmpEmail</p>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <div class="mt-6 text-center">
+                <a href="@Url.Action("EmployeesList", "Admins")"
+                   class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out">
+                    Back to Employee List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model CargoManagementDataAccess.Entity.Models.City
+@{
+    ViewBag.Title = "EditCity";
+}
+
+<div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl mx-auto">
+    <h1 class="text-2xl text-blue-600 font-semibold text-center mb-6">CargoType Update</h1>
+
+    @using (Html.BeginForm("EditCity", "Admins", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.Id) <!-- Hidden field for Employee ID -->
+
+        <div class="grid grid-cols-2 gap-4 mt-3">
+            <div>
+                <label for="CityName" class="block text-sm font-medium text-gray-700">City Name</label>
+                @Html.TextBoxFor(model => model.CityName, new { @class = "form-control w-full px-2 py-1 mt-1 border rounded-md text-sm" })
+                @Html.ValidationMessageFor(model => model.CityName, "", new { @class = "text-red-500 text-xs" })
+            </div>
+
+            <div>
+                <label for="Pincode" class="block text-sm font-medium text-gray-700">PinCode</label>
+                @Html.TextBoxFor(model => model.Pincode, new { @class = "form-control w-full px-2 py-1 mt-1 border rounded-md text-sm" })
+                @Html.ValidationMessageFor(model => model.Pincode, "", new { @class = "text-red-500 text-xs" })
+            </div>
+        </div>
+
+        
+
+
+
+        <div class="mt-3 flex justify-center">
+            <div class="w-full max-w-xs">
+                <label for="Country" class="block text-sm font-medium text-gray-700">Country</label>
+                @Html.TextBoxFor(model => model.Country, new { @class = "form-control w-full px-2 py-1 mt-1 border rounded-md text-sm" })
+                @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-red-500 text-xs" })
+            </div>
+        </div>
+
+        <div class="mt-4 flex space-x-4">
+            <a href="@Url.Action("CityList", "Admins")" class="w-1/2 bg-gray-600 text-white py-2 rounded-md text-sm text-center hover:bg-gray-700 transition duration-300">View CityList</a>
+
+            <button type="submit" class="w-1/2 bg-green-600 text-white py-2 rounded-md text-sm hover:bg-green-700 transition duration-300">Update</button>
+        </div>
+    }
+</div>

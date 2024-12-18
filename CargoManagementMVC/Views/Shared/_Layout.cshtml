@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargo Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="bg-gray-100">
+
+    <!-- Main Content Area -->
+    <main class="min-h-screen py-8">
+        <div class="max-w-7xl mx-auto px-4">
+            @RenderBody() <!-- This will render the content of each page -->
+        </div>
+    </main>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

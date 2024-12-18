@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "EmployeesList";
+}
+<h2 class="text-2xl font-semibold text-center text-gray-800 mb-4">Employees List</h2>
+
+<!-- Search Form -->
+<form asp-controller="Employees" asp-action="Index" method="get" class="flex justify-center mb-4">
+    <input type="text" name="CustName" placeholder="Search by Name"
+           class="w-full md:w-1/2 px-3 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
+    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700 transition">
+        Search
+    </button>
+</form>
+
+<!-- Employee Table -->
+<div class="overflow-x-auto container">
+
+    <div class="flex justify-between items-center my-6">
+        <!-- Back Button -->
+        <a href="@Url.Action("AdminDashboard", "Admins")"
+           class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out">
+            Back to DashBoard
+        </a>
+
+        <!-- Add New Cargotype Button -->
+        <a href="@Url.Action("CreateEmployee", "Admins")"
+           class="px-4 py-2 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition duration-300 ease-in-out">
+            Create Employee
+        </a>
+    </div>
+
+    <table class="w-full table-auto border-collapse text-sm">
+        <thead>
+            <tr class="bg-blue-600 text-white">
+                <th class="p-3 text-left">User Name</th>
+                <th class="p-3 text-left">Email</th>
+                <th class="p-3 text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="border-b hover:bg-gray-100">
+                    <td class="p-3 text-gray-800">@item.UserName</td>
+                    <td class="p-3 text-gray-800">@item.EmpEmail</td>
+                    <td class="p-3 flex justify-center space-x-2">
+                        <a href="@Url.Action("EmployeeDetails", "Admins", new { id = item.EmpId })" class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition">Details</a>
+                        <a href="@Url.Action("EditEmployee", "Admins", new { id = item.EmpId })" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Edit</a>
+                        <a href="@Url.Action("DeleteEmployee", "Admins", new { id = item.EmpId })" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-blue-600 transition">Delete</a>
+
+
+                        @*<a asp-controller="Admins" asp-action="Delete" asp-route-id="@item.EmpId"
+                               class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition">
+                                Delete
+                            </a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Add New Employee Button -->
+<div class="mt-4 text-center">
+    <a href="@Url.Action("CreateEmployee", "Admins")" class="w-1/2 bg-gray-600 text-white py-2 px-8 rounded-md text-sm text-center hover:bg-gray-700 transition duration-300">Create Employees</a>
+</div>

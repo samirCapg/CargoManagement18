@@ -1,0 +1,155 @@
+﻿@model CargoManagementDataAccess.Entity.Models.Employee
+
+@{
+    ViewBag.Title = "Delete Employee";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Employee</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="~/css/site.css">
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            margin-bottom: 60px; /* Margin bottom for sticky footer */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            color: #d9534f;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .form-wrapper {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        dl.row {
+            margin-bottom: 20px;
+        }
+
+        dl.row dt {
+            font-weight: bold;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        dl.row dd {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .btn-danger {
+            width: 100%;
+            padding: 12px;
+            background-color: #d9534f;
+            border-color: #c9302c;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 1.25rem;
+        }
+
+        .btn-danger:hover {
+            background-color: #c9302c;
+            border-color: #ac2925;
+        }
+
+        .btn-secondary {
+            margin-top: 15px;
+            text-align: center;
+            display: block;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Delete Employee</h1>
+        <h3>Are you sure you want to delete @Html.DisplayFor(model => model.EmpName)</h3>
+
+        <div class="form-container">
+            <div class="form-wrapper">
+            
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        User Name
+                    </dt>
+                    <dd class="col-sm-10">
+                        <!-- Display Name of Cargo Type -->
+                        @Html.DisplayFor(model => model.UserName)
+                    </dd>
+
+                    <dt class="col-sm-2">
+                        Name
+                    </dt>
+                    <dd class="col-sm-10">
+                        <!-- Display Name of Cargo Type -->
+                        @Html.DisplayFor(model => model.EmpName)
+                    </dd>
+
+                    <dt class="col-sm-2">
+                        Email
+                    </dt>
+                    <dd class="col-sm-10">
+                        <!-- Display Name of Cargo Type -->
+                        @Html.DisplayFor(model => model.EmpEmail)
+                    </dd>
+
+
+
+                </dl>
+
+                <!-- Form for Deletion -->
+                @using (Html.BeginForm("DeleteConfirmed", "Admins", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="Id" value="@Model.EmpId" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                }
+
+            <div class="text-center">
+                <a href="@Url.Action("EmployeesList", "Admins")" class="btn btn-secondary">Back to Employees List</a>
+                @*<a href="/Admin/Dashboard" class="btn btn-secondary">Back to Dashboard</a>*@
+            </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

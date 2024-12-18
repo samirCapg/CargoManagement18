@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "AdminLogin";
+}
+
+<!-- Font and Style -->
+<style>
+
+
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        text-align: center;
+        color: #333;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        color: #37517e;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+        input:focus {
+            border-color: #37517e;
+            outline: none;
+        }
+
+    button {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 100%;
+    }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+    .forgot-password {
+        margin-top: 10px;
+        text-align: right;
+    }
+
+    a {
+        color: #4CAF50;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>
+
+
+<!-- Main Container -->
+<div class="container">
+    <h2>Admin Login</h2>
+    @using (Html.BeginForm("AdminLogin", "CargoApp", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="UserName" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="Password" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit">Login</button>
+
+        <div class="forgot-password">
+            <a href="#">Forgot Password?</a>
+        </div>
+
+    }
+</div>
+

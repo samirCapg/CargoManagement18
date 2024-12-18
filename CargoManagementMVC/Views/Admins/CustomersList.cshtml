@@ -1,0 +1,56 @@
+﻿@*@model CargoManagementDataAccess.Entity.Models.Customer*@
+
+@{
+    ViewBag.Title = "CustomersList";
+}
+
+
+<h2 class="text-2xl font-semibold text-center text-gray-800 mb-4">Customers List</h2>
+
+<!-- Search Form -->
+<form asp-controller="Employees" asp-action="Index" method="get" class="flex justify-center mb-4">
+    <input type="text" name="CustName" placeholder="Search by Name"
+           class="w-full md:w-1/2 px-3 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
+    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700 transition">
+        Search
+    </button>
+</form>
+
+<!-- Employee Table -->
+<div class="overflow-x-auto container">
+
+    <div class="flex  my-6">
+        <!-- Back Button -->
+        <a href="@Url.Action("AdminDashboard", "Admins")"
+           class="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out">
+            Back to DashBoard
+        </a>
+    </div>
+
+    <table class="w-full table-auto border-collapse text-sm">
+        <thead>
+            <tr class="bg-blue-600 text-white">
+                <th class="p-3 text-left">User Name</th>
+                <th class="p-3 text-left">Customer Name</th>
+                <th class="p-3 text-left">Address</th>
+                <th class="p-3 text-left">Phone</th>
+                <th class="p-3 text-left">Email</th>
+
+                @*<th class="p-3 text-center">Actions</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="border-b hover:bg-gray-100">
+                    <td class="p-3 text-gray-800">@item.UserName</td>
+                    <td class="p-3 text-gray-800">@item.CustName</td>
+                    <td class="p-3 text-gray-800">@item.CustAddress</td>
+                    <td class="p-3 text-gray-800">@item.CustPhNo</td>
+                    <td class="p-3 text-gray-800">@item.CustEmail</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
